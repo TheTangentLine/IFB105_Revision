@@ -1,3 +1,5 @@
+<div align="center">
+
 # 3. Normalisation
 
 ![Chapter 3](https://img.shields.io/badge/chapter_3-Normalisation-9a6700?style=flat-square)
@@ -5,6 +7,8 @@
 ![Section B](https://img.shields.io/badge/Section_B-Q21-8250df?style=flat-square)
 
 [Contents](README.md) | Previous: [2. Relational Mapping](02-rmapping.md) | Next: [4. SQL](04-sql.md)
+
+</div>
 
 ---
 
@@ -51,6 +55,7 @@ IFB105 covers the first three normal forms. Each one includes the one before it,
 
 **Transitive dependency:** a non-key column depends on **another non-key column** (key → A → B).
 
+> [!WARNING]
 > **Work out dependencies from the data, not from the column order.** To test whether X determines Y, find two rows with the same X. If they have different Y values, X does *not* determine Y. Don't treat names as identifiers either: in the practice exam, two different patients are both called "Mary Smith".
 
 ### Practice exam questions
@@ -104,16 +109,18 @@ True or false: a primary key is used in the child table to reference a row in th
 
 ## Step 1: First Normal Form (1NF)
 
-A table is in **1NF** when:
-
-1. It has a **primary key**, so every row can be uniquely identified.
-2. Each column holds **one data type**.
-3. Every value is **atomic**. There are no lists or repeating groups, and nothing that can be meaningfully divided further.
+> [!IMPORTANT]
+> A table is in **1NF** when:
+>
+> 1. It has a **primary key**, so every row can be uniquely identified.
+> 2. Each column holds **one data type**.
+> 3. Every value is **atomic**. There are no lists or repeating groups, and nothing that can be meaningfully divided further.
 
 **How to get there:** remove repeating groups by giving each repeated item its own row, and make every value atomic. Then find the primary key.
 
 ![UNF to 1NF](images/norm_unf_1nf.png)
 
+> [!NOTE]
 > **Whether a value is atomic depends on context.** The lecture treats a full address ("123 Maple St, Springfield, IL, 62704") as non-atomic, because it combines the street, city, state and ZIP code, so you would split it into separate columns. A person's name is usually treated as atomic.
 
 ## Draw the dependency diagram first
@@ -131,17 +138,20 @@ FitHub's 1NF table has the key (MemberID, ClassCode):
 
 ## Step 2: Second Normal Form (2NF)
 
-A table is in **2NF** when it is in 1NF **and has no partial dependencies**. Every non-key column depends on the *whole* primary key.
+> [!IMPORTANT]
+> A table is in **2NF** when it is in 1NF **and has no partial dependencies**. Every non-key column depends on the *whole* primary key.
 
 **How to get there:** move each partially dependent column into a new table, together with the part of the key it depends on. That part of the key becomes the new table's primary key, and stays in the original table as a foreign key.
 
 ![2NF](images/norm_2nf.png)
 
+> [!TIP]
 > **Shortcut:** 2NF only matters when the primary key is **composite**. A table in 1NF with a single-column primary key is automatically in 2NF.
 
 ## Step 3: Third Normal Form (3NF)
 
-A table is in **3NF** when it is in 2NF **and no non-key column depends on another non-key column**. In other words, there are no transitive dependencies.
+> [!IMPORTANT]
+> A table is in **3NF** when it is in 2NF **and no non-key column depends on another non-key column**. In other words, there are no transitive dependencies.
 
 **How to get there:** move the transitively dependent columns into a new table, keyed on the column they actually depend on. Keep that column in the original table as a foreign key.
 

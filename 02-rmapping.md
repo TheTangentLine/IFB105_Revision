@@ -1,3 +1,5 @@
+<div align="center">
+
 # 2. Relational Mapping (RMapping)
 
 ![Chapter 2](https://img.shields.io/badge/chapter_2-RMapping-1a7f37?style=flat-square)
@@ -5,6 +7,8 @@
 ![Section B](https://img.shields.io/badge/Section_B-Q20-8250df?style=flat-square)
 
 [Contents](README.md) | Previous: [1. ORM](01-orm.md) | Next: [3. Normalisation](03-normalisation.md)
+
+</div>
 
 ---
 
@@ -94,6 +98,7 @@ A one-to-one fact type goes into **only one** table. Which table depends on the 
 
 ![Rule 4.1 example](images/rmap_rule4_example.png)
 
+> [!NOTE]
 > **Compare these two cases.** In the lecture's Playlist example, *User has email* is one-to-one, but User has **no other functional role**: its only other fact, *Playlist was created by User*, is many-to-many. So Rule 4.3 applies and you get a separate `HasEmail {username, emailAddress}` table. In FitHub, Member *also* has a name, so Rule 4.1 puts `email` in the Member table. The facts look the same, but a different rule applies because of the object's *other* roles.
 
 ## The RMapping procedure, step by step

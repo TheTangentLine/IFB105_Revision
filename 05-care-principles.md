@@ -1,9 +1,13 @@
+<div align="center">
+
 # 5. Data ethics: the CARE principles
 
 ![Chapter 5](https://img.shields.io/badge/chapter_5-CARE_principles-6e7781?style=flat-square)
 ![Section B](https://img.shields.io/badge/Section_B-Q16-8250df?style=flat-square)
 
 [Contents](README.md) | Previous: [4. SQL](04-sql.md)
+
+</div>
 
 ---
 
@@ -16,7 +20,8 @@ Section B Q16 (4 marks) asks you to assess a scenario against the **CARE Princip
 | **R** | Responsibility | Are relationships with those communities kept up over time? |
 | **E** | Ethics | Are the communities' rights and wellbeing the main concern? Were they consulted about benefits, harms and future use? |
 
-The practice exam answer key calls C "Community Benefit", while the official CARE wording is "Collective Benefit". Either name is fine. The marks come from your reasoning.
+> [!NOTE]
+> The practice exam answer key calls C "Community Benefit", while the official CARE wording is "Collective Benefit". Either name is fine. The marks come from your reasoning.
 
 ## Practice exam question
 

@@ -1,3 +1,5 @@
+<div align="center">
+
 # 4. SQL
 
 ![Chapter 4](https://img.shields.io/badge/chapter_4-SQL-cf222e?style=flat-square)
@@ -6,6 +8,8 @@
 ![MySQL](https://img.shields.io/badge/runs_on-MySQL_8-57606a?style=flat-square)
 
 [Contents](README.md) | Previous: [3. Normalisation](03-normalisation.md) | Next: [5. CARE principles](05-care-principles.md)
+
+</div>
 
 ---
 
@@ -129,6 +133,7 @@ UPDATE Member SET phoneNo = '0400111222' WHERE memberID = 'M02';
 DELETE FROM Booking WHERE memberID = 'M03' AND classCode = 'SPN4';
 ```
 
+> [!WARNING]
 > **Always include a `WHERE` clause on UPDATE and DELETE.** Without one, every row in the table changes. MySQL Workbench's *safe update mode* blocks an UPDATE or DELETE whose WHERE clause doesn't use a key column. If you really need to run one, turn safe mode off with `SET SQL_SAFE_UPDATES = 0;`.
 
 ### Will this statement run?
@@ -382,6 +387,7 @@ COMMIT;          -- make the changes permanent
 -- or ROLLBACK;  -- undo everything since START TRANSACTION
 ```
 
+> [!CAUTION]
 > **DDL commits automatically.** In MySQL, `CREATE`, `ALTER` and `DROP` trigger an implicit COMMIT. If you put an `ALTER TABLE` inside a transaction, everything before it is committed straight away, and a later `ROLLBACK` can't undo it. I tested this: an UPDATE followed by an ALTER was still there after the ROLLBACK. Keep changes to table structure out of transactions.
 
 **Permissions (DCL).** MySQL 8 roles let you group privileges together and grant them all at once:
@@ -404,14 +410,15 @@ A user with two roles has every privilege from both roles combined. To let someo
 
 ## Common SQL mistakes
 
-- Strings go in single quotes (`'M01'`). Numbers don't.
-- Test for NULL with `IS NULL`, never `= NULL`.
-- Use `HAVING` for conditions on aggregates and `WHERE` for conditions on rows.
-- `COUNT(*)` counts rows. `COUNT(col)` skips NULLs.
-- Use `IN` with a subquery that might return several rows. Only use `=` when it returns exactly one.
-- `UPDATE` or `DELETE` without `WHERE` affects every row.
-- Create parent tables before child tables, and drop child tables before parent tables.
-- `ALTER` changes the structure of a table. `UPDATE` changes the data in it.
+> [!WARNING]
+> - Strings go in single quotes (`'M01'`). Numbers don't.
+> - Test for NULL with `IS NULL`, never `= NULL`.
+> - Use `HAVING` for conditions on aggregates and `WHERE` for conditions on rows.
+> - `COUNT(*)` counts rows. `COUNT(col)` skips NULLs.
+> - Use `IN` with a subquery that might return several rows. Only use `=` when it returns exactly one.
+> - `UPDATE` or `DELETE` without `WHERE` affects every row.
+> - Create parent tables before child tables, and drop child tables before parent tables.
+> - `ALTER` changes the structure of a table. `UPDATE` changes the data in it.
 
 ---
 

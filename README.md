@@ -1,3 +1,5 @@
+<div align="center">
+
 # IFB105 Database Management: Exam Study Guide
 
 [![1 ORM](https://img.shields.io/badge/1-ORM-0969da?style=flat-square)](01-orm.md)
@@ -9,6 +11,8 @@
 Prepared by Minh Kha (Marvin) Truong, SSP.
 
 Based on the IFB105 Week 5 (RMapping) and Week 6 (Normalisation) lectures, the ORM revision note, and the IFB105 Practice Exam (Sections A and B) and its answer key.
+
+</div>
 
 ---
 

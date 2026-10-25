@@ -1,3 +1,5 @@
+<div align="center">
+
 # 1. ORM and the Conceptual Schema Design Procedure
 
 ![Chapter 1](https://img.shields.io/badge/chapter_1-ORM-0969da?style=flat-square)
@@ -5,6 +7,8 @@
 ![Section B](https://img.shields.io/badge/Section_B-Q17_to_Q20-8250df?style=flat-square)
 
 [Contents](README.md) | Next: [2. Relational Mapping](02-rmapping.md)
+
+</div>
 
 ---
 
@@ -19,10 +23,6 @@ The **Conceptual Schema Design Procedure (CSDP)** has seven steps. IFB105 covers
 5. Add mandatory role constraints and check for logical derivations.
 
 Steps 6 (value, set-comparison and subtyping constraints) and 7 (other constraints and final checks) are not assessed in this unit.
-
-Here is the complete FitHub schema after all five steps. You don't need to understand it yet. Come back to it at the end of the chapter and you should be able to explain every part of it.
-
-![The finished FitHub ORM schema](images/orm_fithub_full.png)
 
 ## Contents
 
@@ -50,6 +50,7 @@ Here is the complete FitHub schema after all five steps. You don't need to under
 | **Predicate** | A sequence of roles with a reading, for example "… *has name* …". |
 | **Arity** | The number of roles. Unary is 1, binary is 2 and ternary is 3. |
 
+> [!IMPORTANT]
 > **A unit-based reference mode makes an entity type.** `Price (AUD:)` and `Quantity (L:)` are drawn as solid entity boxes, because the unit tells you how to read the number. A plain name such as `ProductName` is a value type. You need this for practice exam Q18b.
 
 ---
@@ -58,17 +59,19 @@ Here is the complete FitHub schema after all five steps. You don't need to under
 
 You start with real data (a form, a table or a screenshot) and rewrite each piece of information as a plain English sentence.
 
-**Pattern:** entity type + reference mode + *has* / *is* + value type + value.
+> [!IMPORTANT]
+> **Pattern:** entity type + reference mode + *has* / *is* + value type + value.
 
 ![Anatomy of an elementary fact](images/orm_step1_anatomy.png)
 
 ### What makes a fact elementary
 
-An elementary fact:
-
-1. **Can't be split** into smaller facts without losing information.
-2. **States something that is true.** "Steven is not a patient" describes something that isn't the case, so it isn't an elementary fact.
-3. **Has no conditions.** "If X then Y" or "X, so Y" is two facts joined by logic.
+> [!IMPORTANT]
+> An elementary fact:
+>
+> 1. **Can't be split** into smaller facts without losing information.
+> 2. **States something that is true.** "Steven is not a patient" describes something that isn't the case, so it isn't an elementary fact.
+> 3. **Has no conditions.** "If X then Y" or "X, so Y" is two facts joined by logic.
 
 To check, try splitting the sentence in two. If nothing is lost, it was a compound fact and you should write it as two facts. If splitting loses meaning, keep it as one. "Member M01 received Mark 65 in Exam E1" has to stay together, because once you split it you no longer know which exam the 65 was for.
 
@@ -93,9 +96,10 @@ Ask yourself whether you need a reference mode to say which one you mean, or whe
 
 ### Common mistakes
 
-- Leaving out the reference mode. Write "The **Member with ID** 'M01' has…", not "M01 has…".
-- Joining two facts with "and".
-- Treating the reference mode (for example `StudentID`) as an object of its own.
+> [!WARNING]
+> - Leaving out the reference mode. Write "The **Member with ID** 'M01' has…", not "M01 has…".
+> - Joining two facts with "and".
+> - Treating the reference mode (for example `StudentID`) as an object of its own.
 
 ### Practice exam questions
 
@@ -239,6 +243,7 @@ If the answer is yes, combine them into one type and keep the old distinction as
 
 In this example the three price types have been combined into one `MoneyAmount (USD:)`. Role names in square brackets (`[wholesalePrice]`, `[retailPrice]` and `[markup]`) tell the three predicates apart. Whenever two or more predicates connect to the same object type, give the roles names.
 
+> [!TIP]
 > **In the exam:** in Q18, UnitPrice = Price ÷ Quantity (2 L for $5.00 is $2.50 per litre). If a question asked for Step 3, you would mark UnitPrice with \* and not store it. Q18 only asks for Steps 1 and 2, though, so leave it in. Answer the step the question asks for.
 
 ### Practice exam questions
@@ -267,10 +272,12 @@ A **uniqueness constraint** is a bar over one or more roles. It means the values
 | **n : 1** | Class *is run by* Trainer | Repeats on one side only | One bar over the role that **never** repeats |
 | **m : n** | Trainer *speaks* Language | Repeats in both columns, but the same pair never appears twice | **One** bar spanning both roles |
 
-**Every binary fact type needs at least one uniqueness bar.** A binary fact type with no bar is wrong.
+> [!WARNING]
+> **Every binary fact type needs at least one uniqueness bar.** A binary fact type with no bar is wrong.
 
 ### The n-1 rule
 
+> [!IMPORTANT]
 > In a predicate with *n* roles, every uniqueness constraint must span at least *n* − 1 roles.
 
 For a binary fact type (n = 2), the bar covers one role or both. For a ternary (n = 3), every bar must cover at least two roles:
