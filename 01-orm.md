@@ -32,7 +32,7 @@ Steps 6 (value, set-comparison and subtyping constraints) and 7 (other constrain
 - [Step 3: Combine entity types and note arithmetic derivations](#step-3-combine-entity-types-and-note-arithmetic-derivations)
 - [Step 4: Add uniqueness constraints and check arity](#step-4-add-uniqueness-constraints-and-check-arity)
 - [Step 5: Add mandatory role constraints and check for logical derivations](#step-5-add-mandatory-role-constraints-and-check-for-logical-derivations)
-- [The finished FitHub schema](#the-finished-fithub-schema)
+- [Putting it together](#putting-it-together)
 
 ---
 
@@ -278,7 +278,7 @@ A **uniqueness constraint** is a bar over one or more roles. It means the values
 ### The n-1 rule
 
 > [!IMPORTANT]
-> In a predicate with *n* roles, every uniqueness constraint must span at least *n* − 1 roles.
+> In a predicate with *n* roles, every uniqueness constraint must span at least *n* - 1 roles.
 
 For a binary fact type (n = 2), the bar covers one role or both. For a ternary (n = 3), every bar must cover at least two roles:
 
@@ -309,7 +309,7 @@ Which of these is a one-to-one association?
 
 ![Section A · Q5](https://img.shields.io/badge/Section_A-Q5-1f6feb?style=flat-square)
 
-Four ternary predicates A–B–C are drawn with different uniqueness bars. Which one is incorrect?
+Four ternary predicates A-B-C are drawn with different uniqueness bars. Which one is incorrect?
 
 <details><summary>Answer</summary>
 
@@ -337,7 +337,7 @@ Which statement is true?
 
 <details><summary>Answer</summary>
 
-**(a).** Two separate bars make Patient–Bed one-to-one, and the dot on Patient makes it mandatory for patients.
+**(a).** Two separate bars make Patient-Bed one-to-one, and the dot on Patient makes it mandatory for patients.
 
 - (b) would need a dot on Bed's side, and there isn't one.
 - (c) describes one-to-many, but the bar spans both roles, so the relationship is many-to-many.
@@ -415,9 +415,9 @@ Which queries break the mandatory constraint C1, and why?
 
 ---
 
-## The finished FitHub schema
+## Putting it together
 
-![The finished FitHub ORM schema](images/orm_fithub_full.png)
+![The complete ORM schema](images/orm_fithub_full.png)
 
 Practise reading each fact type and its constraints out loud. Most of the ORM questions in Section A ask you to do exactly this.
 

@@ -136,9 +136,9 @@ Map the hospital schema from [Q6](01-orm.md#step-4-add-uniqueness-constraints-an
 - **Rule 1:** *is being seen by* and *has integrated* both have bars spanning both roles, so they become `beingSeenBy {patientID, clinicianEmpID}` and `integratedDevice {bedID, deviceID}`.
 - **Rule 2:** `patient {patientID, patientName}`, `clinician {empID, clinicianName, medicalSpecialty}` and `bed {bedID, wardName}`.
 - **Rule 3:** there is no nesting.
-- **Rule 4:** Patient–Bed is one-to-one, both objects have other functional roles, and only Patient's role is mandatory. Under **Rule 4.2**, `bedID` goes into `patient` and is marked unique.
+- **Rule 4:** Patient-Bed is one-to-one, both objects have other functional roles, and only Patient's role is mandatory. Under **Rule 4.2**, `bedID` goes into `patient` and is marked unique.
 
-(c) loses the many-to-many Bed–Device fact by squeezing `deviceID` into `bed`. (b) puts the one-to-one fact on Bed's side, which has no mandatory dot.
+(c) loses the many-to-many Bed-Device fact by squeezing `deviceID` into `bed`. (b) puts the one-to-one fact on Bed's side, which has no mandatory dot.
 
 </details>
 

@@ -214,7 +214,7 @@ Normalise this table to 3NF (leave out foreign keys).
 
 - LoanedTo has gaps, so it has to be optional. That rules out (b) and (c).
 - AuthorID is never empty, so it isn't optional. That rules out (d).
-- Book–Author is many-to-many (P1235 has two authors, and E1232 wrote two books), so it needs its own `Authorship` table.
+- Book-Author is many-to-many (P1235 has two authors, and E1232 wrote two books), so it needs its own `Authorship` table.
 
 </details>
 
